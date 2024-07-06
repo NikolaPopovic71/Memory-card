@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="welcome-screen">
+      <div class="glass-card">
+        <h1>Welcome to our Memory Game</h1>
+        <ul>
+          <li>there are 5 options</li>
+          <li>
+            the easiest to solve is 4x4 (16 fields in total, 8 pairs of signs)
+          </li>
+          <li>
+            the most difficult is 12x12 (144 fields in total, 72 pairs of signs)
+          </li>
+          <li>
+            for each option, according to its difficulty to solve, you have a
+            limited time
+          </li>
+          <li>
+            the game is simple, you open one field of your choice, a sign is
+            hidden behind it
+          </li>
+          <li>then you open another field</li>
+          <li>if you hit the sign, the fields remain open</li>
+          <li>in case you did not hit the same sign, the fields are closed</li>
+          <li>you need to open all fields</li>
+          <li>
+            if you have overestimated your capabilities, press the button "Stop
+            and back" and choose the option with fewer fields
+          </li>
+        </ul>
+        <label for="gridSize">Select options:</label>
+        <select id="gridSize">
+          <option value="4x4" selected>4x4</option>
+          <option value="6x6">6x6</option>
+          <option value="8x8">8x8</option>
+          <option value="10x10">10x10</option>
+          <option value="12x12">12x12</option>
+        </select>
+        <p>When you are ready click the button</p>
+        <button id="startGame" class="btn-class-name" title="Start Game">
+          <span class="back"></span>
+          <span class="front">Start</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+      <button id="stopAndBack" class="stop-back">Stop and back</button>
+      <div id="gameContainer"></div>
+      <p id="timer">Time: <span id="time">100</span></p>
+    </div>
+
+    <div id="result-modal" class="modal hidden">
+      <div class="modal-content">
+        <p id="time-spent"></p>
+        <h2 id="result-message"></h2>
+        <button onclick="startGame()" class="start-game">New Game</button>
+        <button onclick="showWelcomeScreen()" class="home">Home</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
